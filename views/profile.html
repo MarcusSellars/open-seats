@@ -3,198 +3,226 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script>
-    // Initialize Firebase
-    var config = {
-      apiKey: "AIzaSyAywWSarXWDKgjP7S44bJvbWNqjYGY02ZU",
-      authDomain: "openseats-2018.firebaseapp.com",
-      databaseURL: "https://openseats-2018.firebaseio.com",
-      projectId: "openseats-2018",
-      storageBucket: "openseats-2018.appspot.com",
-      messagingSenderId: "989533129248"
-    };
-    firebase.initializeApp(config);
-    s</script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyAywWSarXWDKgjP7S44bJvbWNqjYGY02ZU",
+    authDomain: "openseats-2018.firebaseapp.com",
+    databaseURL: "https://openseats-2018.firebaseio.com",
+    projectId: "openseats-2018",
+    storageBucket: "openseats-2018.appspot.com",
+    messagingSenderId: "989533129248"
+  };
+  firebase.initializeApp(config);
+  s
+</script>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <style>
-    body {margin:0;}
+  body {
+    margin: 0;
+  }
 
-    .icon-bar {
-       width: 100%;
-       background-color: #555;
-       overflow: auto;
-    }
+  .icon-bar {
+    width: 100%;
+    background-color: #555;
+    overflow: auto;
+  }
 
-    .icon-bar a {
-       float: left;
-       width: 20%;
-       text-align: center;
-       padding: 12px 0;
-       transition: all 0.3s ease;
-       color: white;
-       font-size: 36px;
-    }
+  .icon-bar a {
+    float: left;
+    width: 20%;
+    text-align: center;
+    padding: 12px 0;
+    transition: all 0.3s ease;
+    color: white;
+    font-size: 36px;
+  }
 
-    .icon-bar a:hover {
-       background-color: #000;
-    }
+  .icon-bar a:hover {
+    background-color: #000;
+  }
 
-    .active {
-       background-color: #4CAF50 !important;
-    }
-    #googleMap {
-      max-width: 100%;
-      max-height: 100%;
-      width: 100%;
-      height: 400px;
-      margin: 0 auto 0 auto;
-    }
-    html, body {
+  .active {
+    background-color: #4CAF50 !important;
+  }
+
+  #googleMap {
+    max-width: 100%;
+    max-height: 100%;
+    width: 100%;
+    height: 400px;
+    margin: 0 auto 0 auto;
+  }
+
+  html,
+  body {
     height: 100%;
     margin: 0;
     padding: 0;
-    }
-    h1{
-        text-align: center;
-    }
-    h2{
-        text-align: center;
-    }
+  }
 
-    .flex-container {
+  h1 {
+    text-align: center;
+  }
+
+  h2 {
+    text-align: center;
+  }
+
+  .flex-container {
     display: -webkit-flex;
     display: flex;
     -webkit-flex-flow: row wrap;
     flex-flow: row wrap;
     text-align: center;
-    }
+  }
 
-    .flex-container > * {
+  .flex-container>* {
     padding: 7px;
     -webkit-flex: 1 100%;
     flex: 1 100%;
-    }
+  }
 
-    header {background:grey;color:white;}
+  header {
+    background: grey;
+    color: white;
+  }
 
-    .form-style-6{
-    	font: 95% Arial, Helvetica, sans-serif;
-    	max-width: 400px;
-    	margin: 10px auto;
-    	padding: 16px;
-    	background: #F7F7F7;
-    }
-    .form-style-6 h1{
-    	background: #4CAF50;
-    	padding: 20px 0;
-    	font-size: 140%;
-    	font-weight: 300;
-    	text-align: center;
-    	color: #fff;
-    	margin: -16px -16px 16px -16px;
-    }
-    .form-style-6 input[type="text"],
-    .form-style-6 input[type="date"],
-    .form-style-6 input[type="datetime"],
-    .form-style-6 input[type="email"],
-    .form-style-6 input[type="number"],
-    .form-style-6 input[type="search"],
-    .form-style-6 input[type="time"],
-    .form-style-6 input[type="url"],
-    .form-style-6 textarea,
-    .form-style-6 select
-    {
-    	-webkit-transition: all 0.30s ease-in-out;
-    	-moz-transition: all 0.30s ease-in-out;
-    	-ms-transition: all 0.30s ease-in-out;
-    	-o-transition: all 0.30s ease-in-out;
-    	outline: none;
-    	box-sizing: border-box;
-    	-webkit-box-sizing: border-box;
-    	-moz-box-sizing: border-box;
-    	width: 100%;
-    	background: #fff;
-    	margin-bottom: 4%;
-    	border: 1px solid #ccc;
-    	padding: 3%;
-    	color: #555;
-    	font: 95% Arial, Helvetica, sans-serif;
-    }
-    .form-style-6 input[type="text"]:focus,
-    .form-style-6 input[type="date"]:focus,
-    .form-style-6 input[type="datetime"]:focus,
-    .form-style-6 input[type="email"]:focus,
-    .form-style-6 input[type="number"]:focus,
-    .form-style-6 input[type="search"]:focus,
-    .form-style-6 input[type="time"]:focus,
-    .form-style-6 input[type="url"]:focus,
-    .form-style-6 textarea:focus,
-    .form-style-6 select:focus
-    {
-    	box-shadow: 0 0 5px #43D1AF;
-    	padding: 3%;
-    	border: 1px solid #43D1AF;
-    }
+  .form-style-6 {
+    font: 95% Arial, Helvetica, sans-serif;
+    max-width: 400px;
+    margin: 10px auto;
+    padding: 16px;
+    background: #F7F7F7;
+  }
 
-    .form-style-6 input[type="submit"],
-    .form-style-6 input[type="button"]{
-    	box-sizing: border-box;
-    	-webkit-box-sizing: border-box;
-    	-moz-box-sizing: border-box;
-    	width: 100%;
-    	padding: 3%;
-    	background: #4CAF50;
-    	border-bottom: 2px solid lightgrey;
-    	border-top-style: none;
-    	border-right-style: none;
-    	border-left-style: none;
-    	color: #fff;
-    }
-    .form-style-6 input[type="submit"]:hover,
-    .form-style-6 input[type="button"]:hover{
-    	background: #4CAF50;
-    }
+  .form-style-6 h1 {
+    background: #4CAF50;
+    padding: 20px 0;
+    font-size: 140%;
+    font-weight: 300;
+    text-align: center;
+    color: #fff;
+    margin: -16px -16px 16px -16px;
+  }
 
+  .form-style-6 input[type="text"],
+  .form-style-6 input[type="date"],
+  .form-style-6 input[type="datetime"],
+  .form-style-6 input[type="email"],
+  .form-style-6 input[type="number"],
+  .form-style-6 input[type="search"],
+  .form-style-6 input[type="time"],
+  .form-style-6 input[type="url"],
+  .form-style-6 textarea,
+  .form-style-6 select {
+    -webkit-transition: all 0.30s ease-in-out;
+    -moz-transition: all 0.30s ease-in-out;
+    -ms-transition: all 0.30s ease-in-out;
+    -o-transition: all 0.30s ease-in-out;
+    outline: none;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    width: 100%;
+    background: #fff;
+    margin-bottom: 4%;
+    border: 1px solid #ccc;
+    padding: 3%;
+    color: #555;
+    font: 95% Arial, Helvetica, sans-serif;
+  }
+
+  .form-style-6 input[type="text"]:focus,
+  .form-style-6 input[type="date"]:focus,
+  .form-style-6 input[type="datetime"]:focus,
+  .form-style-6 input[type="email"]:focus,
+  .form-style-6 input[type="number"]:focus,
+  .form-style-6 input[type="search"]:focus,
+  .form-style-6 input[type="time"]:focus,
+  .form-style-6 input[type="url"]:focus,
+  .form-style-6 textarea:focus,
+  .form-style-6 select:focus {
+    box-shadow: 0 0 5px #43D1AF;
+    padding: 3%;
+    border: 1px solid #43D1AF;
+  }
+
+  .form-style-6 input[type="submit"],
+  .form-style-6 input[type="button"] {
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    width: 100%;
+    padding: 3%;
+    background: #4CAF50;
+    border-bottom: 2px solid lightgrey;
+    border-top-style: none;
+    border-right-style: none;
+    border-left-style: none;
+    color: #fff;
+  }
+
+  .form-style-6 input[type="submit"]:hover,
+  .form-style-6 input[type="button"]:hover {
+    background: #4CAF50;
+  }
 </style>
+
 <body style="background-color:white;">
-    <div class="icon-bar">
-    <a href = "/"><i class="fa fa-home"></i></a>
-    <a href = "/add" ><i class="fa fa-plus"></i></a>
-    <a href = "/join"><i class="fa fa-list"></i></a>
-    <a href="/invites"><i class="fa fa-envelope"></i></a>
-    <a href="/profile" class = "active"><i class="fa fa-user-circle-o"></i></a>
-    </div>
-<center>
-<header>
-  <div class="flex-container">
-  <font size=5>
-  <h1>Profile Creator</h1>
-  </font>
+  <div class="icon-bar">
+    <a href="/">
+      <i class="fa fa-home"></i>
+    </a>
+    <a href="/add">
+      <i class="fa fa-plus"></i>
+    </a>
+    <a href="/join">
+      <i class="fa fa-list"></i>
+    </a>
+    <a href="/invites">
+      <i class="fa fa-envelope"></i>
+    </a>
+    <a href="/profile" class="active">
+      <i class="fa fa-user-circle-o"></i>
+    </a>
   </div>
-</header>
- <font size=5>
- <form method = "POST" action="/profile">
-   <div class="form-style-6">
-   <h1>Sign Up</h1>
-   <form>
-   <input type="text" name="name" value="" placeholder="Your Name" />
-   <input type="text" name="age" value="" placeholder="Age" />
-   <textarea name="description" placeholder="About yourself"></textarea>
-   Picture<br>
-   <input type="file" name="picture" onchange="previewFile()"><br>
-   <input type="submit" value="Send" />
-   </form>
-   </div>
- </font>
+  <center>
+    <header>
+      <div class="flex-container">
+        <font size=5>
+          <h1>Profile Creator</h1>
+        </font>
+      </div>
+    </header>
+    <font size=5>
+      <form method="POST" action="/profile">
+        <div class="form-style-6">
+          <h1>Sign Up</h1>
+          <form>
+            <input type="text" name="name" value="" placeholder="Your Name" />
+            <input type="text" name="age" value="" placeholder="Age" />
+            <textarea name="description" placeholder="About yourself"></textarea>
+            Picture
+            <br>
+            <input type="file" name="picture" onchange="previewFile()">
+            <br>
+            <input type="submit" value="Send" />
+          </form>
+        </div>
+    </font>
 
- <script> firebase.database().ref("/users").on("child_added", function(snapshot, prevChildKey) {
-    var newPost = snapshot.val();
-    console.log("Name: " + newPost.name);
-    console.log("Age: " + newPost.age);
-    console.log("Description: " + newPost.description);
-  });
-  </script>
+    <script>
+      firebase.database().ref("/users").on("child_added", function (snapshot, prevChildKey) {
+        var newPost = snapshot.val();
+        console.log("Name: " + newPost.name);
+        console.log("Age: " + newPost.age);
+        console.log("Description: " + newPost.description);
+      });
+    </script>
 
-</form> </center>
+    </form>
+  </center>
 </body>
+
 </html>
