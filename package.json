@@ -1,0 +1,20 @@
+{
+  "name": "openseats",
+  "version": "1.0.0",
+  "description": "Social Eating",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.16.2",
+    "fire": "^0.55.1",
+    "firebase": "^4.9.1",
+    "firebaseauth": "^0.1.1",
+    "firebaseui": "^2.6.0"
+  },
+  "devDependencies": {}
+}

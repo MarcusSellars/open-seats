@@ -1,0 +1,6 @@
+{
+  "projects": {
+    "default": "openseats-2018",
+    "testing": "openseats-2018"
+  }
+}
